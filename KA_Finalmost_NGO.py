@@ -138,8 +138,7 @@ try:
 except:
     missing.extend([page, i])
     pass
-
-print("Missing elements are ", missing)
+    print("Missing elements are ", missing)
             
 
         # driver.close()
