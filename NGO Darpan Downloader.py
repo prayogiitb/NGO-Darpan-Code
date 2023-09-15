@@ -10,7 +10,10 @@ from bs4 import BeautifulSoup
 from IPython.display import display
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
-# import os
+
+# CREATE SERVICE OBJECT FOR GIVING PATH TO CHROMEDRIVER
+from selenium.webdriver.chrome.service import Service
+
 
 
 import pandas as pd
@@ -19,13 +22,15 @@ import time
 
 options=Options()
 options.headless=True
-driver = webdriver.Chrome(executable_path = "C:/Users/USER/Desktop/NGO Darpan/chromedriver_win32/chromedriver.exe")
+serv_obj = Service("D:\Sakshi\ChromeDriver\chromedriver-win32\chromedriver-win32\chromedriver.exe")
+driver = webdriver.Chrome(service=serv_obj)
+
+# Make driver implicitly wait for 10 seconds
 driver.implicitly_wait(10)
+options = webdriver.ChromeOptions()
 
-# options = webdriver.ChromeOptions()
 
-
-prefs = {"download.default_directory" : "C:/Users/USER/Desktop/NGO Darpan/Data"}
+prefs = {"download.default_directory" : "D:/Sakshi/Data_Work/Scrapping"}
 # driver = webdriver.Chrome()
 # driver.maximize_window()
 
